@@ -9,6 +9,7 @@
 int main(int argc, char *argv[])
 {
 	int fd;
+	int ioctl_retval;
 
 	char *fname, *arg;
 
@@ -23,7 +24,8 @@ int main(int argc, char *argv[])
 	if(fd == -1)
 		return errno;
 
-	printf("Ready to ioctl(%s, I_STR, %s)\n", fname, arg);
+	ioctl_retval = ioctl(fd, I_STR, arg);
+	printf("ioctl(%s, I_STR, %s) returned %d\n", fname, arg, ioctl_retval);
 
 	close(fd);
 
