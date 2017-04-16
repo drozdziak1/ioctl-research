@@ -3,6 +3,7 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/init.h>
+#include <linux/ioctl.h>
 
 long my_unlocked_ioctl(struct file *fp, unsigned int cmd, unsigned long arg);
 
@@ -49,7 +50,9 @@ void ioctl_exit(void)
 
 long my_unlocked_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
 {
-	printk(KERN_DEBUG "%s: Got an ioctl!\n", __FUNCTION__);
+	printk(KERN_INFO "%s: Got an ioctl!\n", __FUNCTION__);
+
+	/* TODO: Proper ioctl number registration and handling  */
 
 	return 0;
 }

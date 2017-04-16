@@ -1,4 +1,3 @@
-
 obj-m += ioctl_module.o
 KERNEL_VERSION ?= $(shell uname -r)
 KDIR ?= /lib/modules/$(KERNEL_VERSION)/build
